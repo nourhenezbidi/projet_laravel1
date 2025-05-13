@@ -1,0 +1,61 @@
+{
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "laravel-vite-plugin": "^1.2.0",
+    "vite": "^6.3.5"
+  },
+  "name": "projet_laravel1",
+  "version": "1.0.0",
+  "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\" alt=\"Laravel Logo\"></a></p>",
+  "main": "vite.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "browserslist": "^4.24.5",
+    "caniuse-lite": "^1.0.30001717",
+    "convert-source-map": "^2.0.0",
+    "debug": "^4.4.0",
+    "electron-to-chromium": "^1.5.150",
+    "esbuild": "^0.25.4",
+    "escalade": "^3.2.0",
+    "fdir": "^6.4.4",
+    "gensync": "^1.0.0-beta.2",
+    "globals": "^11.12.0",
+    "js-tokens": "^4.0.0",
+    "jsesc": "^3.1.0",
+    "json5": "^2.2.3",
+    "lru-cache": "^5.1.1",
+    "ms": "^2.1.3",
+    "nanoid": "^3.3.11",
+    "node-releases": "^2.0.19",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.2",
+    "postcss": "^8.5.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-refresh": "^0.17.0",
+    "react-router-dom": "^6.30.0",
+    "rollup": "^4.40.2",
+    "semver": "^6.3.1",
+    "source-map-js": "^1.2.1",
+    "tinyglobby": "^0.2.13",
+    "update-browserslist-db": "^1.1.3",
+    "yallist": "^3.1.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nourhenezbidi/projet_laravel1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nourhenezbidi/projet_laravel1/issues"
+  },
+  "homepage": "https://github.com/nourhenezbidi/projet_laravel1#readme"
+}
