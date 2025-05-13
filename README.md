@@ -11,51 +11,222 @@
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### issue 1 
 
-## Learning Laravel
+```
+medaminebentaieb@Med-Macbook-M3-Max projet_laravel1 % npm install
+npm error code ETARGET
+npm error notarget No matching version found for vite-plugin-react@^5.0.0.
+npm error notarget In most cases you or one of your dependencies are requesting
+npm error notarget a package version that doesn't exist.
+npm error A complete log of this run can be found in: /Users/medaminebentaieb/.npm/_logs/2025-05-13T09_35_47_602Z-debug-0.log
+medaminebentaieb@Med-Macbook-M3-Max projet_laravel1 % 
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### issue 1 - Solution
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```
+npm install vite
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**package.json :**
 
-## Laravel Sponsors
+```
+"scripts": {
+  "dev": "vite",
+  "build": "vite build"
+}
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### issue 2 - redo the npm/react/vite-plugin installation missing few things
 
-## Code of Conduct
+```
+entaieb@Med-Macbook-M3-Max projet_laravel1 % npm run dev                               
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+> dev
+> vite
 
-## Security Vulnerabilities
+failed to load config from /Users/medaminebentaieb/Documents/Github/projet_laravel1/vite.config.js
+error when starting dev server:
+Error: Cannot find module 'laravel-vite-plugin'
+Require stack:
+- /Users/medaminebentaieb/Documents/Github/projet_laravel1/vite.config.js
+- /Users/medaminebentaieb/Documents/Github/projet_laravel1/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1405:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)
+    at Function._load (node:internal/modules/cjs/loader:1215:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/Users/medaminebentaieb/Documents/Github/projet_laravel1/vite.config.js:36:42)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+medaminebentaieb@Med-Macbook-M3-Max projet_laravel1 %
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### issue 2 - Solution
 
-## License
+```
+npm install laravel-vite-plugin --save-dev
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+**Verify your vite.config.js file :**
+
+
+```
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/js/app.js', 'resources/css/app.css'],
+            refresh: true,
+        }),
+    ],
+});
+```
+
+
+```
+npm run dev
+```
+
+---
+
+
+### issue 3 
+
+```
+Illuminate\Encryption\MissingAppKeyException
+No application encryption key has been specified.
+GET localhost:8000
+PHP 8.4.6 — Laravel 12.10.2
+```
+
+### issue 3 - Solution
+
+```
+php artisan key:generate --show
+```
+
+This will generate a new key and update the `APP_KEY` value in your `.env` file automatically.
+
+
+
+---
+
+### issue 4 
+run npm run dev issue : 
+
+```
+VITE v6.3.5 ready in 133 ms  ➜ Local: http://localhost:5173/ ➜ Network: use --host to expose ➜ press h + enter to show help (node:4024) [MODULE_TYPELESS_PACKAGE_JSON] 
+Warning: Module type of file:///Users/medaminebentaieb/Documents/Github/projet_laravel1/postcss.config.js?t=1747129792812 is not specified and it doesn't parse as CommonJS. Reparsing as ES module because module syntax was detected. This incurs a performance overhead. To eliminate this warning, add "type": "module" to /Users/medaminebentaieb/Documents/Github/projet_laravel1/package.json. (Use node --trace-warnings ... to show where the warning was created)  LARAVEL v12.10.2 plugin v1.2.0  ➜ APP_URL: http://localhost:8000
+```
+
+### issue 4 - Solution
+
+Update `package.json`
+Add the "type": "module" field to the root of your package.json file:
+```
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  ...
+}
+```
+
+
+
+---
+
+### issue 5
+
+```
+bentaieb@Med-Macbook-M3-Max projet_laravel1 % php artisan migrate
+
+   InvalidArgumentException 
+
+  Database connection [MySQL] not configured.
+
+  at vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php:227
+    223▕ 
+    224▕         $config = $this->dynamicConnectionConfigurations[$name] ?? Arr::get($connections, $name);
+    225▕ 
+    226▕         if (is_null($config)) {
+  ➜ 227▕             throw new InvalidArgumentException("Database connection [{$name}] not configured.");
+    228▕         }
+    229▕ 
+    230▕         return (new ConfigurationUrlParser)
+    231▕             ->parseConfiguration($config);
+
+      +26 vendor frames 
+
+  27  artisan:16
+      Illuminate\Foundation\Application::handleCommand(Object(Symfony\Component\Console\Input\ArgvInput))
+
+medaminebentaieb@Med-Macbook-M3-Max projet_laravel1 %
+```
+
+### issue 5 - Solution
+
+```
+php artisan config:clear
+php artisan config:cache
+```
+
+**config/database.php file:**
+
+```
+'mysql' => [
+        'driver'         => 'mysql',
+        'timezone'       => '+01:00', // ADDED THIS FOR TUNISIA TIME ZONE ; SHOULD BE CHANGED !
+        'url'            => env('DATABASE_URL'),
+        'host'           => env('DB_HOST', '127.0.0.1'),
+        'port'           => env('DB_PORT', '3306'),
+        'database'       => env('DB_DATABASE', 'forge'),
+        'username'       => env('DB_USERNAME', 'forge'),
+        'password'       => env('DB_PASSWORD', ''),
+        'unix_socket'    => env('DB_SOCKET', ''),
+        'charset'        => 'utf8mb4',
+        'collation'      => 'utf8mb4_unicode_ci',
+        'prefix'         => '',
+        'prefix_indexes' => true,
+        'strict'         => true,
+        'engine'         => null,
+        'options'        => extension_loaded('pdo_mysql') ? array_filter([
+            PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+        ]) : [],
+    ],
+```
+
+
+---
+
+
+### Css or Tailwind issue
+
+http://127.0.0.1:8000/login
+
+
+<img src="https://i.imgur.com/epIJ2tZ.png" />
+
+
+
+### `.gitignore` updated :
+
+`.gitignore` updated & excluded the .env file so you see the changes done
+
+
+
