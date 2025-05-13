@@ -224,5 +224,9 @@ http://127.0.0.1:8000/login
 
 
 
+### `.gitignore` updated :
+
+`.gitignore` updated & excluded the .env file so you see the changes done
+
 
 
