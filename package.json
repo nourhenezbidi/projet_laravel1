@@ -1,7 +1,10 @@
 {
   "devDependencies": {
     "@vitejs/plugin-react": "^4.4.1",
+    "autoprefixer": "^10.4.21",
     "laravel-vite-plugin": "^1.2.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6",
     "vite": "^6.3.5"
   },
   "name": "projet_laravel1",
@@ -31,7 +34,6 @@
     "node-releases": "^2.0.19",
     "picocolors": "^1.1.1",
     "picomatch": "^4.0.2",
-    "postcss": "^8.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-refresh": "^0.17.0",
