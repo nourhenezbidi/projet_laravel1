@@ -23,3 +23,18 @@ Route::apiResource('Banner', BannerController::class);
 
 use App\Http\Controllers\FooterController;
 Route::apiResource('Footer', FooterController::class);
+
+use App\Http\Controllers\HeaderController;
+Route::apiResource('Header', HeaderController::class);
+
+use App\Http\Controllers\CarouselController;
+Route::apiResource('Carousel', CarouselController::class);
+
+use App\Http\Controllers\SlideController;
+Route::apiResource('slide', SlideController::class);
+
+use App\Http\Controllers\LinkController;
+Route::apiResource('link', LinkController::class);
+
+use App\Http\Controllers\FeaturedCompanyController;
+Route::apiResource('featured_company', FeaturedCompanyController::class);

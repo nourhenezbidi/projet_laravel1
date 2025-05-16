@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Footer extends Model
+class Link extends Model
 {
     protected $fillable = [
-        'adress',
-        'phone_number',
-        'contact_email',
-        'social_media_links'
+        'label',
+        'url',
+        'type',
+        'landing_page_id'
+
     ];
 
-    public function landingPage()
+ 
+    public function LandingPage()
     {
         return $this->belongsTo(LandingPage::class);
     }

@@ -2,48 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\MenuItem;
 use Illuminate\Http\Request;
 
 class MenuItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return response()->json(MenuItem::with(['page', 'parent', 'children'])->get());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'label' => 'required|string|max:255',
+            'url' => 'nullable|string|max:255',
+            'order' => 'nullable|integer',
+            'page_id' => 'nullable|exists:pages,id',
+            'parent_id' => 'nullable|exists:menu_items,id',
+        ]);
+
+        $menuItem = MenuItem::create($validated);
+
+        return response()->json($menuItem->load(['page', 'parent', 'children']), 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(MenuItem $menuItem)
     {
-        //
+        return response()->json($menuItem->load(['page', 'parent', 'children']));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, MenuItem $menuItem)
     {
-        //
+        $validated = $request->validate([
+            'label' => 'sometimes|required|string|max:255',
+            'url' => 'nullable|string|max:255',
+            'order' => 'nullable|integer',
+            'page_id' => 'nullable|exists:pages,id',
+            'parent_id' => 'nullable|exists:menu_items,id',
+        ]);
+
+        $menuItem->update($validated);
+
+        return response()->json($menuItem->load(['page', 'parent', 'children']), 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(MenuItem $menuItem)
     {
-        //
+        $menuItem->delete();
+        return response()->json(null, 204);
     }
 }

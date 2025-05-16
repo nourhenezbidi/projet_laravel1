@@ -4,15 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MenuItems extends Model
+class MenuItem extends Model
 {
     protected $fillable = [
         'label', 'url', 'order', 'page_id', 'parent_id'
     ];
 
-    // Relations
-
-    // Relation vers une page liée à ce menu (optionnelle)
+    // Relation vers une page liée à ce menu
     public function page()
     {
         return $this->belongsTo(Page::class);

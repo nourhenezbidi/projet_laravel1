@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Footer extends Model
+class StaffMember extends Model
 {
     protected $fillable = [
-        'adress',
-        'phone_number',
-        'contact_email',
-        'social_media_links'
+        'full_name',
+        'description',
+        'image',
+        'display_order',
+        'landing_page_id',
+        'linkedin_url',
     ];
 
     public function landingPage()
